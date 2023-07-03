@@ -14,7 +14,7 @@ const reducer: typeReducer = (state, action) => {
 
 const Login: React.FC = () => {
 	const [info, dispatch] = useReducer<typeReducer>(reducer, { value: 123 })
-	const [data] = React.useState(0)
+	const [data] = React.useState<number>(0)
 	const initAdd = () => {
 		dispatch({ type: 'change', payload: 123 })
 	}
