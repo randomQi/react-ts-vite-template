@@ -1,21 +1,28 @@
-import { useState } from 'react'
+import React from 'react'
 import './App.css'
-import Login from '@/pages/Login'
+import { Layout } from 'antd'
+const { Header, Sider, Content } = Layout
+import { Slider } from '@/layout/sider/slider'
 function App() {
-	const [count, setCount] = useState<number>(0)
-
+	const siderStyle: React.CSSProperties = {
+		height: '100%',
+		width: '200px',
+		color: '#fff',
+	}
+	const headerStyle: React.CSSProperties = { color: '#fff' }
+	const contentStyle: React.CSSProperties = {
+		padding: '10px',
+	}
 	return (
-		<>
-			<Login></Login>
-			<h1>Vite + React</h1>
-			<div className="card">
-				<button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-			</div>
-			<p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-		</>
+		<Layout style={{ height: '100%' }}>
+			<Sider style={siderStyle}>
+				<Slider />
+			</Sider>
+			<Layout>
+				<Header style={headerStyle}>Header</Header>
+				<Content style={contentStyle}>Content</Content>
+			</Layout>
+		</Layout>
 	)
 }
 export default App
