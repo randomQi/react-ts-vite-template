@@ -3,6 +3,7 @@ import './App.css'
 import { Layout } from 'antd'
 const { Header, Sider, Content } = Layout
 import { Slider } from '@/layout/sider/slider'
+import RouterView from '@/router'
 function App() {
 	const siderStyle: React.CSSProperties = {
 		height: '100%',
@@ -15,12 +16,14 @@ function App() {
 	}
 	return (
 		<Layout style={{ height: '100%' }}>
-			<Sider style={siderStyle}>
-				<Slider />
-			</Sider>
+			<Header style={headerStyle}>Header</Header>
 			<Layout>
-				<Header style={headerStyle}>Header</Header>
-				<Content style={contentStyle}>Content</Content>
+				<Sider style={siderStyle}>
+					<Slider />
+				</Sider>
+				<Content style={contentStyle}>
+					<RouterView></RouterView>
+				</Content>
 			</Layout>
 		</Layout>
 	)

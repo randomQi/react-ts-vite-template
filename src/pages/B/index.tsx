@@ -1,5 +1,3 @@
 export default function B() {
-    return (
-        <div>B组件</div>
-    )
+	return <div>B组件</div>
 }

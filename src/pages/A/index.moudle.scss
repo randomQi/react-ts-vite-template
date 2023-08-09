@@ -1,0 +1,35 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 200px 200px;
+  grid-gap: 20px;
+  height: 100%;
+  background-image: linear-gradient(25deg, #38bcd1, #82bacc, #b0b7c7, #d6b3c2);
+  div:first-child{
+    display: grid;
+    place-content: center;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(139deg, #052c51, #563d5f, #914c6d, #cc5b7b);
+    -webkit-mask: radial-gradient(
+                    circle at 100% 100%,
+                    transparent 0,
+                    transparent 12px,#2179f5 13px
+    ),radial-gradient(
+                    circle at 0 0,
+                    transparent 0,
+                    transparent 12px,#2179f5 13px
+    ),radial-gradient(
+                    circle at 100% 0,
+                    transparent 0,
+                    transparent 12px,#2179f5 13px
+    ),radial-gradient(
+                    circle at 0 100%,
+                    transparent 0,
+                    transparent 12px,#2179f5 13px
+    );
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: right bottom, left top, right top, left bottom;
+    -webkit-mask-size: 70% 70%;
+  }
+}

@@ -5,12 +5,12 @@ import { ConfigProvider } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
 import 'reset.css'
 import './index.css'
-import { BrowserRouter} from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<ConfigProvider locale={zhCN}>
-		<BrowserRouter>
+		<HashRouter>
 			<App />
-		</BrowserRouter>
+		</HashRouter>
 	</ConfigProvider>
 )
