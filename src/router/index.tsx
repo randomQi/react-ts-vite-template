@@ -4,7 +4,7 @@ import routes from '@/router/routers'
 import { Suspense } from 'react'
 import { ReactNode } from 'react'
 
-function createRoute(routes: routesI[]) {
+function createRoute(routes: routesI[] | undefined) {
 	return (
 		<>
 			{routes.map((item, index) => {

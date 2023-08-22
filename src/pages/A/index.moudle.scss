@@ -11,7 +11,7 @@
     width: 100%;
     height: 100%;
     background-image: linear-gradient(139deg, #052c51, #563d5f, #914c6d, #cc5b7b);
-    -webkit-mask: radial-gradient(
+    mask: radial-gradient(
                     circle at 100% 100%,
                     transparent 0,
                     transparent 12px,#2179f5 13px
@@ -28,9 +28,9 @@
                     transparent 0,
                     transparent 12px,#2179f5 13px
     );
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: right bottom, left top, right top, left bottom;
-    -webkit-mask-size: 50% 50%;
+    mask-repeat: no-repeat;
+    mask-position: right bottom, left top, right top, left bottom;
+    mask-size: 50% 50%;
   }
   .dis {
     background-image: linear-gradient(to right, #9890e3 0%, #b1f4cf 100%);
@@ -44,7 +44,7 @@
       gap: 10px;
       color: #eee;
       overflow: auto;
-      -webkit-mask: linear-gradient(to right,#000 60%,transparent);
+      mask: linear-gradient(to right,#000 60%,transparent);
       li {
         flex-shrink: 0;
         width: 200px;

@@ -1,6 +1,11 @@
-import style from './index.moudle.scss'
 import './index.moudle.scss'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 export function A() {
+	const useSelector1 = useSelector((state) => state)
+	useEffect(() => {
+		console.log(useSelector1)
+	})
 	return (
 		<div className="wrapper">
 			<div>mask渐变裁剪</div>
