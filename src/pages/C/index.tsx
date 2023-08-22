@@ -1,3 +1,16 @@
+import './index.moudle.scss'
 export default function C() {
-	return <div>C 组件</div>
+	return (
+		<div className="grid-image">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	)
 }

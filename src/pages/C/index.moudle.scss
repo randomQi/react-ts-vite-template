@@ -1,0 +1,10 @@
+.grid-image {
+  height: 100%;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(3,1fr);
+  grid-auto-rows: repeat(3,1fr);
+  div {
+    background: url("@/assets/pexels.jpg") no-repeat center/cover fixed;
+  }
+}
