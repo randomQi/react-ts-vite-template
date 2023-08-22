@@ -1,5 +1,5 @@
 import { DatePicker } from 'antd'
 
-export function ButtonR() {
+export default function ButtonR() {
 	return <DatePicker></DatePicker>
 }

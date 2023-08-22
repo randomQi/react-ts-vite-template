@@ -35,6 +35,14 @@ const routes: routesI[] = [
 		hidden: false,
 		// children: [],
 	},
+	{
+		path: '/lazyImage',
+		key: '/lazyImage',
+		label: 'lazyImage',
+		component: lazy(() => import('@/pages/lazyImage')),
+		hidden: false,
+		// children: [],
+	},
 ]
 
 export default routes

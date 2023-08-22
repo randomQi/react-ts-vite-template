@@ -10,7 +10,6 @@ http.interceptors.request.use((config) => {
 // todo
 http.interceptors.response.use(
 	(res) => {
-		console.log(res)
 		return res
 	},
 	(error) => {
@@ -18,3 +17,4 @@ http.interceptors.response.use(
 		return error
 	}
 )
+export default http
