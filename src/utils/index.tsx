@@ -53,3 +53,19 @@ export function debounce(fn: (...arg) => any, { time, immediately = false, resul
 		}
 	}
 }
+
+/**
+ * instanceof by randomQi
+ * @param ins 实例对象
+ * @param target 构造函数
+ */
+export function myInstanceof(ins: any, target: any): boolean {
+	let prototypeOf = Object.getPrototypeOf(ins)
+	while (prototypeOf) {
+		if (prototypeOf === Object.getPrototypeOf(target)) {
+			return true
+		}
+		prototypeOf = Object.getPrototypeOf(prototypeOf)
+	}
+	return false
+}
