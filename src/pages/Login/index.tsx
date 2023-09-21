@@ -1,30 +1,59 @@
-import React, { useReducer } from 'react'
-type name = {
-	value: number
-}
-type action = { type: string; payload?: number }
-type typeReducer = React.Reducer<name, action>
-const reducer: typeReducer = (state, action) => {
-	if (action.type === 'change') {
-		const { floor, random } = Math
-		return { value: floor(random() * 10) }
-	}
-	return { value: 6666 }
+import React from 'react'
+import './index.scss'
+import { Button, Checkbox, Form, Input } from 'antd'
+import { useNavigate, Navigate } from 'react-router-dom'
+const onFinishFailed = (errorInfo: any) => {
+	console.log('Failed:', errorInfo)
 }
 
+type FieldType = {
+	username?: string
+	password?: string
+	remember?: string
+}
 const Login: React.FC = () => {
-	const [info, dispatch] = useReducer<typeReducer>(reducer, { value: 123 })
-	const [data] = React.useState<number>(0)
-	const initAdd = () => {
-		dispatch({ type: 'change', payload: 123 })
+	const item = sessionStorage.getItem('isLogin')
+	if (item) {
+		return <Navigate to="/"></Navigate>
+	}
+	const nav = useNavigate()
+	const onFinish = () => {
+		sessionStorage.setItem('isLogin', 'true')
+		nav('/')
 	}
 	return (
-		<>
-			<div>{data}</div>
-			<button onClick={initAdd}>触发reducer默认类型</button>
-			<input value={info.value} readOnly={true} />
-			<button onClick={() => dispatch({ type: 'change' })}>触发change类型的事件</button>
-		</>
+		<div className="login_wrapper">
+			<div className="form-wrapper">
+				<Form
+					name="basic"
+					labelCol={{ span: 6 }}
+					wrapperCol={{ span: 17 }}
+					style={{ width: '80%' }}
+					initialValues={{ remember: true }}
+					onFinish={onFinish}
+					onFinishFailed={onFinishFailed}
+					autoComplete="off"
+				>
+					<Form.Item<FieldType> label="用户名" name="username" rules={[{ required: true, message: '请输入用户名' }]}>
+						<Input />
+					</Form.Item>
+
+					<Form.Item<FieldType> label="密码" name="password" rules={[{ required: true, message: '请输入密码' }]}>
+						<Input.Password />
+					</Form.Item>
+
+					<Form.Item<FieldType> name="remember" valuePropName="checked" wrapperCol={{ offset: 6, span: 16 }}>
+						<Checkbox>Remember me</Checkbox>
+					</Form.Item>
+
+					<Form.Item wrapperCol={{ offset: 6, span: 17 }}>
+						<Button style={{ width: '100%' }} type="primary" htmlType="submit">
+							登录
+						</Button>
+					</Form.Item>
+				</Form>
+			</div>
+		</div>
 	)
 }
 export default Login

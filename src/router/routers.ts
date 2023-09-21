@@ -12,15 +12,15 @@ export interface routesI {
 }
 const routes: routesI[] = [
 	{
-		path: '/background',
-		key: '/background',
+		path: '/',
+		key: '/',
 		label: 'Background',
 		component: A,
 		hidden: false,
 		// children: [],
 	},
 	{
-		path: '/b',
+		path: 'b',
 		key: '/b',
 		label: 'B组件',
 		component: lazy(() => import('@/pages/B')),
