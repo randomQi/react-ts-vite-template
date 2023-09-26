@@ -43,6 +43,14 @@ const routes: routesI[] = [
 		hidden: false,
 		// children: [],
 	},
+	{
+		path: '/performance',
+		key: '/performance',
+		label: '性能优化',
+		component: lazy(() => import('@/pages/performance/virtualList')),
+		hidden: false,
+		// children: [],
+	},
 ]
 
 export default routes

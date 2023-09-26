@@ -1,5 +1,5 @@
 import './index.moudle.scss'
-import { useEffect, useMemo, useRef, useState} from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { getRandomImageList } from '@/apis/lazyImages'
 import svg from '@/assets/react.svg'
 import { flushSync } from 'react-dom'
