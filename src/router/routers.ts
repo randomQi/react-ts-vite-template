@@ -51,6 +51,14 @@ const routes: routesI[] = [
 		hidden: false,
 		// children: [],
 	},
+	{
+		path: '/autoHeight',
+		key: '/autoHeight',
+		label: '不定高度',
+		component: lazy(() => import('@/pages/performance/autoHeightVirtual')),
+		hidden: false,
+		// children: [],
+	},
 ]
 
 export default routes

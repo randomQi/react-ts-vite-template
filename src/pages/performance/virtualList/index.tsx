@@ -12,7 +12,7 @@ function Index() {
 	const mutableRefObject1 = useRef<number>(0)
 	const mutableRefObject = useRef<HTMLDivElement | unknown>()
 	useLayoutEffect(() => {
-		endIndex = Math.ceil(mutableRefObject.current.clientHeight / itemHeight)
+		endIndex = Math.ceil(mutableRefObject.current.clientHeight / itemHeight) + 1
 		setEndIndex(endIndex)
 		mutableRefObject1.current = curVisNum
 	},[])
