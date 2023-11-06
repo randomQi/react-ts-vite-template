@@ -27,9 +27,9 @@ function LayoutLQ() {
 							<Slider />
 						</Sider>
 						<Content style={contentStyle}>
-							<Outlet></Outlet>
+							{/*<Outlet></Outlet>*contentStyle/}
 							{/*多级路由配置*/}
-							{/*<Routes>{createRoute(routes)}</Routes>*/}
+							<Routes>{createRoute(routes)}</Routes>
 						</Content>
 					</Layout>
 				</Layout>

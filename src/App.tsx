@@ -1,13 +1,14 @@
 import React, { Suspense } from 'react'
 import './App.css'
 import { Layout } from 'antd'
-const { Header, Sider, Content } = Layout
-import { Slider } from '@/layout/sider/slider'
-import RouterView, { createRoute } from '@/router'
+// const { Header, Sider, Content } = Layout
+// import { Slider } from '@/layout/sider/slider'
+// import RouterView, { createRoute } from '@/router'
 import Login from '@/pages/Login'
 import { Outlet, Route, Routes } from 'react-router-dom'
 import LayoutLQ from '@/layout'
-import routes from '@/router/routers'
+// import routes from '@/router/routers'
+import { FabllbackProvider } from '@/context/performance'
 function App() {
 	// const siderStyle: React.CSSProperties = {
 	// 	height: '100%',
@@ -40,17 +41,19 @@ function App() {
 	// }
 
 	return (
-		<Suspense loading={<>loading</>}>
-			<Routes>
-				<Route path="/" element={<LayoutLQ />}>
-					{/*多级路由配置*/}
-					{/*<Route path="/*" element={<LayoutLQ />}>*/}
-					{/*此方案生成的动态路由并不完美，组件异步加载，路由切换时，存在闪屏的问题*/}
-					{createRoute(routes)}
-				</Route>
-				<Route path="/login" element={<Login />} />
-			</Routes>
-		</Suspense>
+		<FabllbackProvider>
+			<Suspense loading={<>loading</>}>
+				<Routes>
+					<Route path="/*" element={<LayoutLQ />}>
+						{/*多级路由配置*/}
+						{/*<Route path="/*" element={<LayoutLQ />}>*/}
+						{/*此方案生成的动态路由并不完美，组件异步加载，路由切换时，存在闪屏的问题*/}
+						{/*{createRoute(routes)}*/}
+					</Route>
+					<Route path="/login" element={<Login />} />
+				</Routes>
+			</Suspense>
+		</FabllbackProvider>
 	)
 }
 export default App

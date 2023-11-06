@@ -1,5 +1,7 @@
 import React, { JSX, lazy, LazyExoticComponent } from 'react'
 import { A } from '@/pages/A'
+import LayoutLQ from '@/layout'
+import B from '@/pages/B'
 export interface routesI {
 	key?: string
 	path: string
@@ -10,11 +12,21 @@ export interface routesI {
 	meta?: Record<any, any>
 	children?: routesI[]
 }
+// const routes: routesI[] = [
+// 	{
+// 		path: '/*',
+// 		key: '/',
+// 		label: 'Background',
+// 		component: <LayoutLQ/>,
+// 		hidden: false,
+// 		children: [],
+// 	},
+// ]
 const routes: routesI[] = [
 	{
-		path: '/',
-		key: '/',
-		label: 'Background',
+		path: '/a',
+		key: '/a',
+		label: 'A组件',
 		component: A,
 		hidden: false,
 		// children: [],
@@ -23,7 +35,7 @@ const routes: routesI[] = [
 		path: 'b',
 		key: '/b',
 		label: 'B组件',
-		component: lazy(() => import('@/pages/B')),
+		component: B,
 		hidden: false,
 		// children: [],
 	},

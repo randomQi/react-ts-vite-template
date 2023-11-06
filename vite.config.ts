@@ -2,9 +2,10 @@ import { defineConfig } from 'vite'
 import autoprefixer from 'autoprefixer'
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import { myVitePlugin } from './plugin'
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [react()],
+	plugins: [react(), myVitePlugin()],
 	server: {
 		host: '0.0.0.0',
 		port: 10010,
