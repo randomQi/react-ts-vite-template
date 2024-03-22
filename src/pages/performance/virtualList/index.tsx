@@ -1,4 +1,4 @@
-import {useEffect, useState, useRef, useLayoutEffect} from 'react'
+import { useEffect, useState, useRef, useLayoutEffect } from 'react'
 import './virtual.moudle.scss'
 const totalNum = 10000
 const oriData = Array.from({ length: totalNum }, (data, index) => `第${index + 1}条数据`)
@@ -10,22 +10,24 @@ function Index() {
 	const [data, setData] = useState([])
 	const [top, setTop] = useState(0)
 	const mutableRefObject1 = useRef<number>(0)
-	const mutableRefObject = useRef<HTMLDivElement | unknown>()
-	useLayoutEffect(() => {
-		endIndex = Math.ceil(mutableRefObject.current.clientHeight / itemHeight) + 1
+	const mutableRefObject = useRef<HTMLDivElement>(null)
+	useEffect(() => {
+		endIndex = Math.ceil(mutableRefObject.current!.clientHeight / itemHeight) + 1
 		setEndIndex(endIndex)
 		mutableRefObject1.current = curVisNum
-	},[])
+	}, [])
 	useEffect(() => {
 		const numbers = oriData.slice(Math.max(0, startIndex - curVisNum), Math.min(endIndex + curVisNum, oriData.length))
 		setData(numbers)
 	}, [startIndex])
+	console.log('渲染区间', startIndex, endIndex)
 	return (
 		<div className="container">
 			<div className="virtual-wrapper" ref={mutableRefObject} onScroll={handleScroll}>
 				<div className="faker-height" style={{ height: totalNum * itemHeight }}></div>
 				{/* top定位，此处有确定滑动过快会出白屏*/}
-				<ul className="real-height" style={{ top: top }}>
+				<ul className="real-height" style={{ transform: `translate3d(0, ${top}px, 0)` }}>
+					{/*<ul className="real-height" style={{ top: top, transform: `translateY(${-top}px)` }}>*/}
 					{data.map((item, index) => (
 						<li key={index} style={{ height: itemHeight }}>
 							{item}

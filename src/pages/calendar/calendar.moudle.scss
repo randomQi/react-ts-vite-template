@@ -1,0 +1,27 @@
+.wrapper-calendar {
+  height: 100%;
+  margin: 100px auto;
+  width: 300px;
+  .header {
+   display: flex;
+    justify-content: space-between;
+  }
+  .days {
+    display: flex;
+    flex-wrap: wrap;
+    .day {
+      text-align: center;
+      width: calc(100% / 7);
+      line-height: 40px;
+      &:hover {
+        background-color: #ccc;
+      }
+    }
+    .selected {
+      background-color: #ccc;
+    }
+  }
+}
+.empty {
+  color:#a8a9ac;
+}

@@ -1,13 +1,14 @@
-import React, { JSX, lazy, LazyExoticComponent } from 'react'
+import React, { FunctionComponent, JSX, lazy, LazyExoticComponent } from 'react'
 import { A } from '@/pages/A'
 import LayoutLQ from '@/layout'
 import B from '@/pages/B'
 export interface routesI {
 	key?: string
+	index?: boolean
 	path: string
 	label: string
 	icon?: React.ReactNode
-	component: React.Component | React.FC | LazyExoticComponent<JSX.Element>
+	component: React.ReactNode | LazyExoticComponent<FunctionComponent> | FunctionComponent
 	hidden?: boolean
 	meta?: Record<any, any>
 	children?: routesI[]
@@ -24,7 +25,7 @@ export interface routesI {
 // ]
 const routes: routesI[] = [
 	{
-		path: '/a',
+		path: 'a',
 		key: '/a',
 		label: 'A组件',
 		component: A,
@@ -40,15 +41,15 @@ const routes: routesI[] = [
 		// children: [],
 	},
 	{
-		path: '/c',
-		key: '/c',
-		label: 'C组件',
 		component: lazy(() => import('@/pages/C')),
 		hidden: false,
+		key: '/c',
+		label: 'C组件',
+		path: 'c',
 		// children: [],
 	},
 	{
-		path: '/lazyImage',
+		path: 'lazyImage',
 		key: '/lazyImage',
 		label: 'lazyImage',
 		component: lazy(() => import('@/pages/lazyImage')),
@@ -56,7 +57,7 @@ const routes: routesI[] = [
 		// children: [],
 	},
 	{
-		path: '/performance',
+		path: 'performance',
 		key: '/performance',
 		label: '性能优化',
 		component: lazy(() => import('@/pages/performance/virtualList')),
@@ -64,10 +65,18 @@ const routes: routesI[] = [
 		// children: [],
 	},
 	{
-		path: '/autoHeight',
+		path: 'autoHeight',
 		key: '/autoHeight',
 		label: '不定高度',
 		component: lazy(() => import('@/pages/performance/autoHeightVirtual')),
+		hidden: false,
+		// children: [],
+	},
+	{
+		path: 'calendar',
+		key: '/calendar',
+		label: '日历',
+		component: lazy(() => import('@/pages/calendar')),
 		hidden: false,
 		// children: [],
 	},

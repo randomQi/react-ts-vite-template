@@ -9,8 +9,12 @@ import { Slider } from '@/layout/sider/slider'
 export function createRoute(routes: routesI[] | undefined) {
 	return (
 		<>
-			{routes.map((item, index) => {
-				return (
+			{routes?.map((item, index) => {
+				return index === 0 ? (
+					<Route path={item.path} key={index} index element={<Element {...item} />}>
+						{item?.children?.length > 0 ? createRoute(item.children) : null}
+					</Route>
+				) : (
 					<Route path={item.path} key={index} element={<Element {...item} />}>
 						{item?.children?.length > 0 ? createRoute(item.children) : null}
 					</Route>
