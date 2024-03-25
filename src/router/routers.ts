@@ -1,7 +1,8 @@
-import React, { FunctionComponent, JSX, lazy, LazyExoticComponent } from 'react'
-import { A } from '@/pages/A'
+import React, { FunctionComponent, JSX, lazy, LazyExoticComponent, SuspenseProps } from 'react'
+import A from '@/pages/A'
 import LayoutLQ from '@/layout'
 import B from '@/pages/B'
+import { LazyLoad } from './index.tsx'
 export interface routesI {
 	key?: string
 	index?: boolean
@@ -25,15 +26,15 @@ export interface routesI {
 // ]
 const routes: routesI[] = [
 	{
-		path: 'a',
+		path: '/a',
 		key: '/a',
 		label: 'A组件',
-		component: A,
+		component: lazy(() => import('@/pages/A')),
 		hidden: false,
 		// children: [],
 	},
 	{
-		path: 'b',
+		path: '/b',
 		key: '/b',
 		label: 'B组件',
 		component: B,
@@ -45,7 +46,7 @@ const routes: routesI[] = [
 		hidden: false,
 		key: '/c',
 		label: 'C组件',
-		path: 'c',
+		path: '/c',
 		// children: [],
 	},
 	{
@@ -81,5 +82,4 @@ const routes: routesI[] = [
 		// children: [],
 	},
 ]
-
 export default routes

@@ -1,7 +1,7 @@
 import './index.moudle.scss'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-export function A() {
+export default function A() {
 	const useSelector1 = useSelector((state) => state)
 	useEffect(() => {
 		console.log(useSelector1)

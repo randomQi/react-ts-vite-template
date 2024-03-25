@@ -1,14 +1,14 @@
 import React, { Suspense } from 'react'
 import './App.css'
-import { Layout, Slider } from 'antd'
+import { Layout, Spin } from 'antd'
 // const { Header, Sider, Content } = Layout
-// import { Slider } from '@/layout/sider/slider'
+import { Slider } from '@/layout/sider/slider'
 // import RouterView, { createRoute } from '@/router'
 import Login from '@/pages/Login'
-import { Outlet, Route, Routes } from 'react-router-dom'
+import { Navigate, Outlet, Route, Routes, RouterProvider, HashRouter } from 'react-router-dom'
 import LayoutLQ from '@/layout'
 import { FabllbackProvider } from '@/context/performance'
-import { createRoute } from '@/router'
+import { createRoute, remixRouter } from '@/router'
 import routes from '@/router/routers.ts'
 import { Content, Header } from 'antd/es/layout/layout'
 import Sider from 'antd/es/layout/Sider'
@@ -33,10 +33,10 @@ function App() {
 							<Slider />
 						</Sider>
 						<Content style={contentStyle}>
-							<Suspense loading={<>loading</>}>
+							<Suspense fallback={<Spin />}>
 								<Routes>
+									<Route path="/" element={<Navigate to="/a" />} />
 									{createRoute(routes)}
-									<Route path="/login" element={<Login />} />
 								</Routes>
 							</Suspense>
 						</Content>
